@@ -4,6 +4,12 @@ body {
     /*padding-top: 50px;*/
 }
 
+/* ------------------------------------------------------------------------------
+*
+*  Navbar content layout
+*
+* ---------------------------------------------------------------------------- */
+
 .navbar {
     text-decoration: none;
     height: 12%;
@@ -26,12 +32,16 @@ body {
     color: #fff;
 }
 
-/*#userIcon #homeIcon #chatIcon{
-    font-size: 9vw;
-}*/
+/* ------------------------------------------------------------------------------
+*
+*  Home Container content layout
+*
+* ---------------------------------------------------------------------------- */
 
-.container {
+.container_home {
     padding-top: 130px;
+    margin-left: 10vw;
+    width: 80vw;
     height: 85%;
     /*bottom: 0;*/
     /*min-height: 92%;*/
@@ -41,18 +51,25 @@ body {
     width: 100%;
     margin-top: 12vh;
 }
-.container .foodName{
+.container_home .foodName{
     text-align: center;
     /*margin-top: 5vh;*/
     margin-top: 0.5vh;
     font-size: 3.3vh;
     font-weight: bold;
 }
-.container .restaurantName{
+.container_home .restaurantName{
     text-align: center;
     font-size: 2.8vh;
     margin-top: 3vh;
 }
+
+/* ------------------------------------------------------------------------------
+*
+*  Home buttons content layout
+*
+* ---------------------------------------------------------------------------- */
+
 .buttons{
     bottom: 0;
     height: 15%;
@@ -109,4 +126,166 @@ body {
 #dislike-button-text{
     padding-top: 3vh;
     color: steelblue;
+}
+
+/* ------------------------------------------------------------------------------
+*
+*  Chat content layout
+*
+* ---------------------------------------------------------------------------- */
+
+.container_chat{
+    padding-top: 12.3vh;
+    height: 88%;
+}
+.chat-list-item{
+    height: 10vh;
+    margin: 1vh;
+    background-color: #fff/*rgba(255, 230, 230, 0.2)*/;
+    /*border-bottom: 0.6vh solid #fff;*/
+}
+.chat-list-item a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.chat-list-item a, a:hover, a:focus{
+    text-decoration: none;
+}
+.chat-list-block{
+    padding: 1vh;
+    height: 100%;
+    width: 100%;
+}
+.chat-list-person{
+    float: left;
+    height: 100%;
+    width: 15%;
+    /*margin: 0;*/
+}
+.chat-list-img{
+    height: 95%;
+    align-content: center;
+}
+.chat-list-content{
+    color: #333;
+    float: right;
+    padding-left: 2.5vh;
+    width: 85%;
+    height: 100%;
+}
+.chat-list-content-line{
+    display: block;
+    height: 50%;
+    width: 100%;
+    padding-top: 0.2vh;
+    font-size: 2vh;
+}
+.chat-list-content-subline{
+    font-size: 2.5vh;
+    width: 60%;
+    height: 100%;
+    float: left;
+}
+.chat-list-content-time{
+    float: right;
+    height: 100%;
+    width: 40%;
+    font-size: 1.4vh;
+    text-align: right;
+}
+
+/* ------------------------------------------------------------------------------
+*
+*  Chatroom content layout
+*
+* ---------------------------------------------------------------------------- */
+
+.container_chatroom{
+    padding-top: 13vh;
+    height: 88%;
+}
+.message{
+    background-color: transparent;
+    padding-left: 4vw;
+    padding-right: 4vw;
+}
+.message-group{
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+.message-line{
+    display: inline-block;
+    width: 100%;
+    height: 6vh;
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
+    background-color: transparent;
+}
+
+.chat-person-left{
+    height: 100%;
+    width: 10%;
+    float: left;
+    text-align: center;
+}
+.chat-person-right{
+    height: 100%;
+    width: 15%;
+    float: right;
+    text-align: center;
+}
+.chat-person-left .chat-person-right img{
+    width: 100%;
+    align-content: center;
+}
+.chat-bubble-left{
+    /*width: 85%;*/
+    float: left;
+    left: 0;
+    display: inline-block;
+    height: 100%;
+    font-size: 2.5vh;
+    text-align: center;
+    padding: 2.5% 4%;
+    margin-left: 2vw;
+    border-radius: 50px;
+    background-color: #ffe6e6;
+}
+.chat-bubble-right{
+    /*width: 85%;*/
+    float: right;
+    left: 0;
+    display: inline-block;
+    height: 100%;
+    font-size: 2.5vh;
+    text-align: center;
+    padding: 2.5% 4%;
+    border-radius: 50px;
+    margin-right: 2vw;
+    background-color: #ffe6e6;
+}
+/*.chat_bubble_tail_left:after{
+    content: ' ';
+    position: relative;
+    width: 0;
+    height: 0;
+    left: -26vw;
+    !*right: auto;*!
+    top: 2vh;
+    bottom: auto;
+    border: 40px solid;
+    border-color: #ffe6e6 transparent transparent transparent;
+}*/
+.chat_bubble_tail_right:before{
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -40px;
+    right: auto;
+    top: -8px;
+    bottom: auto;
+    border: 32px solid;
+    border-color: rgba(255, 193, 192, 0.3) transparent transparent transparent;
 }
