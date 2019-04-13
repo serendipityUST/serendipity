@@ -129,6 +129,101 @@ body {
 
 /* ------------------------------------------------------------------------------
 *
+*  Modal content layout
+*
+* ---------------------------------------------------------------------------- */
+
+#modal-trigger{
+    width: 100%;
+    height: 100%;
+}
+.modal-dialog{
+    width: 85vw;
+    margin-top: 20vh;
+}
+.modal-content{
+    width: 100%;
+    height: 58vh;
+}
+.modal-head{
+    height: 8vh;
+    padding-top: 1.4vh;
+    text-align: center;
+    background-color: #ffc1c0;
+}
+.modal-title{
+    font-size: 3.6vh;
+    color: #fff;
+}
+.utensil{
+    font-size: 2.5vh;
+    margin-right: 2vw;
+    margin-left: 2vw;
+    padding-bottom: 1vh;
+}
+.modal-body{
+    width: 100%;
+    height: 43vh;
+    text-align: center;
+    background-color: #fff;
+}
+.modal-photo{
+    width: 100%;
+}
+#matchImage{
+    width: 60%;
+    padding: 2vh 5vh;
+    border-radius: 50%;
+    /*margin-left: vh;*/
+}
+.match-person-name{
+    text-align: center;
+    font-size: 2.8vh;
+    margin-top: 0.2vh;
+}
+.match-description{
+    margin-top: 0.8vh;
+    text-align: center;
+}
+.match-subdescription{
+    width: 50%;
+    float: left;
+    text-align: right;
+    font-size: 2vh;
+}
+.match-foodlists{
+    list-style: none;
+    width: 50%;
+    padding-top: 1vh;
+    float: right;
+    text-align: left;
+    font-size: 1.5vh;
+}
+.modal-foot{
+    height: 9vh;
+    padding: 0.5vh 1vh;
+}
+.ignore-btn{
+    float: right;
+    background-color: #c9d5db;
+    padding: 0.8vh 3vw;
+    color: white;
+    /*font-weight: bold;*/
+    font-size: 2vh;
+    margin-right: 2vw;
+}
+.chat-btn{
+    float: right;
+    background-color: darksalmon;
+    padding: 0.8vh 3vw;
+    color: white;
+    /*font-weight: bold;*/
+    font-size: 2vh;
+    margin-right: 2vw;
+}
+
+/* ------------------------------------------------------------------------------
+*
 *  Profile content layout
 *
 * ---------------------------------------------------------------------------- */
