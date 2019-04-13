@@ -13,17 +13,17 @@
     <nav class="navbar navbar-fixed-top">
         <div class="row">
             <div class="col-xs-4 nav-icon">
-                <a href="#profile">
+                <a href="profile.html">
                     <span><i id="userIcon" class="fas fa-user" aria-hidden="true"></i></span>
                 </a>
             </div>
             <div class="col-xs-4 nav-icon">
-                <a href="#home">
+                <a href="#">
                     <i id="homeIcon" class="fas fa-utensils" aria-hidden="true"></i>
                 </a>
             </div>
             <div class="col-xs-4 nav-icon">
-                <a href="#chat">
+                <a href="chat.html">
                     <i id="chatIcon" class="fas fa-comments" aria-hidden="true"></i>
                 </a>
             </div>
@@ -53,12 +53,11 @@
         </div>
     </div>
     <script type="text/javascript">
-        //$(function() {
+        $(function() {
             class Food {
                 constructor(src, producer) {
                     this.src = src;
                     this.name = src.split('.')[0].split('/')[1];
-                    //this.name = name;
                     this.producer = producer;
                 }
             }
@@ -67,14 +66,14 @@
                 $( "#foodName").hide();
                 $( "#restaurantName" ).hide();
 
-                $('#foodImage').toggle("slide", {direction: "left"}, function() {
+                $('#foodImage').toggle("slide", {direction: "down"}, 800, function() {
                     setTimeout(function() {
-                    $( "#foodImage" ).hide();
-                    randomSelectFood();
-                    $( "#foodImage" ).fadeIn();
-                    $( "#foodName").fadeIn();
-                    $( "#restaurantName").fadeIn();
-                  }, 1000 );
+                        $( "#foodImage" ).hide();
+                        randomSelectFood();
+                        $( "#foodImage" ).fadeIn();
+                        $( "#foodName").fadeIn();
+                        $( "#restaurantName" ).fadeIn();
+                    }, 1000 );
                 });
             });
 
@@ -82,14 +81,14 @@
                 $( "#foodName").hide();
                 $( "#restaurantName" ).hide();
 
-                $('#foodImage').toggle("slide", {direction: "right"}, function() {
+                $('#foodImage').hide("slide", {direction: "up"}, 800, function() {
                     setTimeout(function() {
-                    $( "#foodImage" ).hide();
-                    randomSelectFood();
-                    $( "#foodImage" ).fadeIn();
-                    $( "#foodName").fadeIn();
-                    $( "#restaurantName").fadeIn();
-                  }, 1000 );
+                        //$( "#foodImage" ).hide();
+                        randomSelectFood();
+                        $( "#foodImage" ).fadeIn();
+                        $( "#foodName").fadeIn();
+                        $( "#restaurantName").fadeIn();
+                      }, 1000 );
                 });
             });
 
@@ -133,7 +132,7 @@
             }
 
             randomSelectFood();
-            //});
+        });
 
     </script>
 </body>
