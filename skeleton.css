@@ -202,7 +202,7 @@ body {
 
 .container_chatroom{
     padding-top: 13vh;
-    height: 88%;
+    height: 90%;
 }
 .message{
     background-color: transparent;
@@ -287,4 +287,28 @@ body {
     bottom: auto;
     border: 32px solid;
     border-color: rgba(255, 193, 192, 0.3) transparent transparent transparent;
+}
+.chatroom-input{
+    height: 10%;
+    background-color: #ffe6e6;
+    padding: 1.7vh;
+}
+.input-field{
+    height: 90%;
+    width: 75%;
+    margin-top: 1%;
+    background-color: #fff;
+    border-radius: 20px;
+    float: left;
+}
+.input-icon{
+    height: 100%;
+    width: 10%;
+    float: right;
+    color: #fff;
+}
+.icons{
+    padding-top: 1.4vh;
+    margin: 0 2vw;
+    font-size: 7.5vw;
 }
