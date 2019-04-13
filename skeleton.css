@@ -135,6 +135,8 @@ body {
 
 .container_profile {
     padding-top: 13vh;
+    padding-right: 3vh;
+    padding-left: 3vh;
     height: 88%;
 }
 
