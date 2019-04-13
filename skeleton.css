@@ -1,0 +1,18 @@
+body {
+    padding-top: 50px;
+}
+
+.navbar {
+    height: 8%;
+    background-color: rgb(246, 208, 208);
+}
+
+.nav-icon {
+    text-align: center;
+    padding-top: 2.5%;
+}
+
+.container {
+    height: 100%;
+    min-height: 100%;
+}
