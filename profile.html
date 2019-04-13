@@ -5,6 +5,24 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="skeleton.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $( function() {
+        $( "#slider-range" ).slider({
+          range: true,
+          min: 0,
+          max: 500,
+          values: [ 75, 300 ],
+          slide: function( event, ui ) {
+            $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+          }
+        });
+        $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+          " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+      } );
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-fixed-top">
@@ -42,7 +60,7 @@
             <div class="col-xs-4"><p style="font-size: 2.5em">Looking For</p></div>
             <div class="col-xs-5"></div>
             <div class="col-xs-3">
-                <div class="dropup">
+                <div class="dropdown">
                   <button class="btn btn-lg btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Select
                     <span class="caret"></span>
@@ -60,6 +78,16 @@
             <div class="col-xs-5"></div>
             <div class="col-xs-3">
                 <p style="font-size: 2.5em">(TBD)</p>
+            </div>
+        </div>
+        <div class="row" style="padding: 10px; margin-top: 2em; padding: 2em; border-bottom: solid 0.1em black;">
+            <div class="col-xs-2"><p style="font-size: 2.5em">Lunch Time</p></div>
+            <div class="col-xs-10">
+                <p>
+                    <label for="amount">Price range:</label>
+                    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                </p>
+                <div id="slider-range"></div>
             </div>
         </div>
     </div>
