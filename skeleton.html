@@ -4,6 +4,7 @@
     <title>Food Tinder</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="skeleton.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 </head>
 <body>
 
@@ -22,26 +23,44 @@
     <nav class="navbar navbar-fixed-top">
         <div class="row">
             <div class="col-xs-4 nav-icon">
-                <h1><a href="#profile">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                Profile
-                </a></h1>
+                <a href="#profile">
+                    <span><i id="userIcon" class="fas fa-user" aria-hidden="true"></i></span>
+                </a>
             </div>
             <div class="col-xs-4 nav-icon">
-                <h1><a href="#home">
-                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                    Home
-                </a></h1>
+                <a href="#home">
+                    <i id="homeIcon" class="fas fa-utensils" aria-hidden="true"></i>
+                </a>
             </div>
             <div class="col-xs-4 nav-icon">
-                <h1><a href="#chat">
-                    <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
-                    Chat
-                </a></h1>
+                <a href="#chat">
+                    <i id="chatIcon" class="fas fa-comments" aria-hidden="true"></i>
+                </a>
             </div>
         </div>
     </nav>
     <div class="container">
+        <div class="photo">
+            <img id="foodImage" src="image/Hawaiian.png">
+        </div>
+        <div class="restaurantName">
+            <span>Pizza Hut</span>
+        </div>
+        <div class="foodName">
+            <span>Hawaiian Pizza</span>
+        </div>
+    </div>
+    <div class="buttons">
+        <div class="likeButton">
+            <a href="#" id="like-button" class="individualButton">
+                <span id="like-button-text" class="buttonText"><i class="fas fa-heart buttonIcon"></i>Like</span>
+            </a>
+        </div>
+        <div class="dislikeButton">
+            <a href="#" id="dislike-button" class="individualButton">
+                <span id="dislike-button-text" class="buttonText"><i class="fas fa-heart-broken buttonIcon"></i>Dislike</span>
+            </a>
+        </div>
     </div>
 </body>
 </html>
