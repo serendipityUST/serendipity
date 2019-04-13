@@ -1,3 +1,28 @@
+ul#top_notification_list {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    padding: 10px;
+}
+ul#top_notification_list li {
+    display: block
+}
+ul#top_notification_list li.new {
+    background: #fcefe3
+}
+ul#top_notification_list li:hover {
+    background: #fcf1e8
+}
+ul#top_notification_list li a {
+    color: #000;
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-decoration: none !important
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 .hidden {
     display: none;
 }

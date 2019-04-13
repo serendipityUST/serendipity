@@ -1,58 +1,70 @@
-<!DOCTYPE html>
+</DOCTYPE html>
 <html>
 <head>
-    <title>Chat Application</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
-
-    <link rel="stylesheet" href="css/content/util/chat.css">
-    <link rel="stylesheet" href="css/content/util/chat.css">
-    <div id="wrapper" style="margin-top: 5px;">
-        <div id="main-container" class="hidden">
-            <div id="messages">
-
-            </div>
-
-            <div id="msg-container">
-                <div class="input-group">
-                    <input class="form-control" type="text" id="msg" name="msg" placeholder="Write your message">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" id="send-msg">Send</button>
-                    </span>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <script id="messages-template" type="text/x-handlebars-template">
-        {{#each messages}}
-        <div class="msg">
-            <div class="details">
-                <span class="user">{{user}}</span>:
-            </div>
-            <div class="details">
-                <span class="text">{{text}}</span>
-            </div>
-            <div class="time">{{time}}</div>
-        </div>
-        {{/each}}
-    </script>
-
-    <script src="js/content/util/chat.js"></script>
+    <title>Food Tinder</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="skeleton.css">
+    <link rel="stylesheet" href="chat.css">
 </head>
 <body>
-    <div class = "row">
-
-    </div>
-    <div class="msg">
-        <div class="details">
-            <span class="user">User</span>:
+    <nav class="navbar navbar-fixed-top">
+        <div class="row">
+            <div class="col-xs-4 nav-icon">
+                <h1><a href="#profile">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                Profile
+                </a></h1>
+            </div>
+            <div class="col-xs-4 nav-icon">
+                <h1><a href="#home">
+                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                    Home
+                </a></h1>
+            </div>
+            <div class="col-xs-4 nav-icon">
+                <h1><a href="#chat">
+                    <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
+                    Chat
+                </a></h1>
+            </div>
         </div>
-        <div class="details">
-            <span class="text">Hello World</span>
-        </div>
-        <div class="time">2018. 01. 12. 12:23 PM</div>
+    </nav>
+    <div class="container" style="right: 0px; display: block;">
+        <ul style="text-align: center; padding: 0; margin: 0;" id="top_notification_list">
+            <li id="notification_item_1">
+                <a href="#message1">
+                    <div style="display: block;">
+                        <div style="display: block; float: left;">
+                            <img alt="Profile" class="profile_pic" src="no-profile.png" style="display: block; height: 48px; width: 48px; margin-right: 12px; border-radius: 50%;">
+                        </div>
+                        <div style="text-align: left; font-size:2em;">
+                            <p><b>Seren</b>: Hello, world<br><small> April 8th, 5:16 PM</small></p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li id="notification_item_2">
+                <a href="#message2">
+                    <div style="display: block;">
+                        <div style="display: block; float: left;">
+                            <img alt="Profile" class="profile_pic" src="no-profile.png" style="display: block; height: 48px; width: 48px; margin-right: 12px; border-radius: 50%;">
+                        </div>
+                        <div style="text-align: left; font-size:2em;"><b>You</b>: Are you free tomorrow?<br><small> May 5th, 11:14 PM</small>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li id="notification_item_3">
+                <a href="#message2">
+                    <div style="display: block;">
+                        <div style="display: block; float: left;">
+                            <img alt="Profile" class="profile_pic" src="no-profile.png" style="display: block; height: 48px; width: 48px; margin-right: 12px; border-radius: 50%;">
+                        </div>
+                        <div style="text-align: left; font-size:2em;"><b>Janet</b>: Hey there!<br><small> May 5th, 11:14 PM</small>
+                        </div>
+                    </div>
+                </a>
+            </li>
     </div>
 </body>
 </html>
