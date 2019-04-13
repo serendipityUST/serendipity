@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="skeleton.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-fixed-top">
@@ -28,13 +31,13 @@
     </nav>
     <div class="container_home">
         <div class="photo">
-            <img id="foodImage" src="image/Hawaiian.png">
+            <img id="foodImage" src="">
         </div>
         <div class="restaurantName">
-            <span>Pizza Hut</span>
+            <span id="restaurantName"></span>
         </div>
         <div class="foodName">
-            <span>Hawaiian Pizza</span>
+            <span id="foodName"></span>
         </div>
     </div>
     <div class="buttons">
@@ -49,5 +52,76 @@
             </a>
         </div>
     </div>
+    <script type="text/javascript">
+        $(function() {
+            class Food {
+                constructor(src, producer) {
+                    this.src = src;
+                    this.name = src.split('.')[0].split('/')[1];
+                    //this.name = name;
+                    this.producer = producer;
+                }
+            }
+
+            $('#like-button').click(function() {
+                $( "#foodName").hide();
+                $( "#restaurantName" ).hide();
+
+                $('#foodImage').toggle("slide", function() {
+                    setTimeout(function() {
+                    $( "#foodImage" ).hide();
+                    randomSelectFood();
+                    $( "#foodImage" ).fadeIn();
+                    $( "#foodName").fadeIn();
+                    $( "#restaurantName").fadeIn();
+                  }, 1000 );
+                });
+            });
+
+            $('#like-button').click(function() {
+                console.log("You just disliked this food!");
+            });
+
+            var dummyData = [
+                new Food('image/Chocolate Lava Cake.png', 'Pizza Hut'),
+                new Food("image/Cinnamon Twist.png", "Pizza Hut"),
+                new Food("image/Cream of Mushroom Soup.png", "Pizza Hut"),
+                new Food("image/Creamy Asian Chicken Spaghetti.png", "Pizza Hut"),
+                new Food("image/Egg Tart.png", "KFC"),
+                new Food("image/English breakfast with Pancakes.jpg", "KFC"),
+                new Food("image/Flava Roast Chicken with Twisty Macaroni in Tomato Soup Combo.jpg", "KFC"),
+                new Food("image/Fried Fish Fillet with Meat Sauce (Beef) Mashed Potato Platter.jpg", "KFC"),
+                new Food("image/Hawaiian.png", "Pizza Hut"),
+                new Food("image/mushroom.jpg", "Pizza Hut"),
+                new Food("image/Pepperoni.png", "Pizza Hut"),
+                new Food("image/Seafood Quinoa Rice with Lobster Sauce.png", "Pizza Hut"),
+                new Food("image/Spaghetti Carbonara.png", "Pizza Hut"),
+                new Food("image/Tomato Twisty Macaroni.jpg", "KFC"),
+                new Food("image/Veggie Ricebox.png", "KFC"),
+                new Food("image/Veggie Supreme.png", "Pizza Hut"),
+                new Food("image/Zinger Burger.png", "KFC"),
+                new Food("image/Chocolate Lava Cake.png", "Pizza Hut")
+            ];
+
+            var dummyHistory = [];
+
+            function randomSelectFood() {
+                var selectedNumber = Math.floor(Math.random() * 17);
+                while(!dummyHistory.includes(selectedNumber)) {
+                    selectedNumber = Math.floor(Math.random() * 17);
+                }
+
+                var selected = dummyData[selectedNumber];
+                dummyHistory.push(selectedNumber);
+
+                $('#foodImage').attr('src', selected.src);
+                $('#foodName').html(selected.name);
+                $('#restaurantName').html(selected.producer);
+            }
+
+            randomSelectFood();
+        });
+
+    </script>
 </body>
 </html>
