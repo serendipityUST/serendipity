@@ -68,11 +68,11 @@
 
                 $('#foodImage').toggle("slide", {direction: "down"}, 800, function() {
                     setTimeout(function() {
-                        $( "#foodImage" ).hide();
+                        $( "#foodImage" ).css('visibility', 'hidden');
                         randomSelectFood();
-                        $( "#foodImage" ).fadeIn();
                         $( "#foodName").fadeIn();
                         $( "#restaurantName" ).fadeIn();
+                        $( "#foodImage" ).fadeIn();
                     }, 1000 );
                 });
             });
@@ -83,11 +83,11 @@
 
                 $('#foodImage').hide("slide", {direction: "up"}, 800, function() {
                     setTimeout(function() {
-                        //$( "#foodImage" ).hide();
+                        $( "#foodImage" ).css('visibility', 'hidden');
                         randomSelectFood();
-                        $( "#foodImage" ).fadeIn();
                         $( "#foodName").fadeIn();
                         $( "#restaurantName").fadeIn();
+                        $( "#foodImage" ).fadeIn();
                       }, 1000 );
                 });
             });
@@ -129,6 +129,7 @@
                 $('#foodImage').attr('src', selected.src);
                 $('#foodName').html(selected.name);
                 $('#restaurantName').html(selected.producer);
+                $('#foodImage').css('visibility', 'visible');
             }
 
             randomSelectFood();
