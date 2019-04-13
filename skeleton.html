@@ -118,6 +118,12 @@
             }
 
             $('#like-button').click(function() {
+                likeCount++;
+                if(checkEndPoint()) {
+                    console.log("New Modal Window!");
+                    return;
+                }
+
                 $( "#foodName").hide();
                 $( "#restaurantName" ).hide();
 
@@ -133,6 +139,11 @@
             });
 
             $('#dislike-button').click(function() {
+                if(checkEndPoint()) {
+                    console.log("New Modal Window!");
+                    return;
+                }
+
                 $( "#foodName").hide();
                 $( "#restaurantName" ).hide();
 
@@ -169,6 +180,7 @@
             ];
 
             var dummyHistory = [];
+            var likeCount = 0;
 
             function randomSelectFood() {
                 var selectedNumber;
@@ -185,6 +197,11 @@
                 $('#foodName').html(selected.name);
                 $('#restaurantName').html(selected.producer);
                 $('#foodImage').css('visibility', 'visible');
+            }
+
+            function checkEndPoint() {
+                if(likeCount >= 5) return true;
+                else return false;
             }
 
             randomSelectFood();

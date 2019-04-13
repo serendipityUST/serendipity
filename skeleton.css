@@ -235,6 +235,16 @@ body {
     height: 88%;
 }
 
+ul.dropdown-menu li {
+    height: 40px;
+    font-size: 1.7em;
+    padding: 5px;
+}
+
+button#dropdownMenu1 {
+    height: 65px;
+    width: 120px;
+}
 /* ------------------------------------------------------------------------------
 *
 *  Chat content layout
