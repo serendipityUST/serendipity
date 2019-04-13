@@ -186,14 +186,14 @@ body {
     text-align: center;
 }
 .match-subdescription{
-    width: 50%;
+    width: 40%;
     float: left;
     text-align: right;
     font-size: 2vh;
 }
 .match-foodlists{
     list-style: none;
-    width: 50%;
+    width: 60%;
     padding-top: 1vh;
     float: right;
     text-align: left;

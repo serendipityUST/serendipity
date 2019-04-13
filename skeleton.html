@@ -24,7 +24,7 @@
                 </a>
             </div>
             <div class="col-xs-4 nav-icon">
-                <a id="modal-trigger" data-dismiss="modal" href="#match-modal">
+                <a href="chat.html">
                     <i id="chatIcon" class="fas fa-comments" aria-hidden="true"></i>
                 </a>
             </div>
@@ -74,36 +74,18 @@
                     <div class="match-description">
                         <h3 class="match-subdescription">You both like : </h3>
                         <ul class="match-foodlists">
-                            <li>Hawaiian Pizza, </li>
-                            <li>Mushroom Rice, </li>
-                            <li>Chicken Wing, </li>
-                            <li>Egg Tart, </li>
-                            <li>CocaCola</li>
+                            <li id="match1"></li>
+                            <li id="match2"></li>
+                            <li id="match3"></li>
+                            <li id="match4"></li>
+                            <li id="match5"></li>
                         </ul>
                     </div>
                 </div>
                 <div class="modal-foot">
-                    <button class="btn btn-lg chat-btn" data-dismiss="modal">Start Chatting!</button>
+                    <button class="btn btn-lg chat-btn"><a href="chat.html">Start Chatting!</a></button>
                     <button class="btn btn-lg ignore-btn" data-dismiss="modal">Ignore</button>
-
-
-                    <!--<div class="ignore-btn">
-                        <a href="#" id="ignore-button" class="individualButton">
-                            <span id="ignore-button-text" class="buttonText"><i class="fas fa-heart buttonIcon"></i>Ignore</span>
-                        </a>
-                    </div>
-                    <div class="chat-btn">
-                        <a href="#" id="chat-button" class="individualButton">
-                            <span id="chat-button-text" class="buttonText"><i class="fas fa-heart buttonIcon"></i>Start Chatting!</span>
-                        </a>
-                    </div>-->
                 </div>
-
-<!--                <div class="modal-footer">
-                    &lt;!&ndash;<button type="button" class="ignore-btn" data-dismiss="modal">Ignore</button>&ndash;&gt;
-                    <a href="#" class="chat-btn" data-dismiss="modal"></a>
-                    &lt;!&ndash;<button type="button" id="chat-btn" class="btn btn-large" data-dismiss="modal">Chat</button>&ndash;&gt;
-                </div>-->
             </div>
         </div>
     </div>
@@ -119,8 +101,15 @@
             }
 
             $('#like-button').click(function() {
-                likeCount++;
+                likeHistory.push(dummyData[selectedNumber]);
                 if(checkEndPoint()) {
+
+                    for(var i = 0; i < 5; i++) {
+                        $("#match" + (i + 1)).html(likeHistory[i].name);
+                        console.log(likeHistory[i].name);
+                    }
+
+                    $("#match-modal").modal("show");
                     console.log("New Modal Window!");
                     return;
                 }
@@ -181,10 +170,10 @@
             ];
 
             var dummyHistory = [];
-            var likeCount = 0;
+            var likeHistory = [];
+            var selectedNumber;
 
             function randomSelectFood() {
-                var selectedNumber;
 
                 do {
                     selectedNumber = Math.floor(Math.random() * 17);
@@ -201,8 +190,9 @@
             }
 
             function checkEndPoint() {
-                if(likeCount >= 5) return true;
-                else return false;
+                if(likeHistory.length >= 5) {
+                    return true;
+                } else return false;
             }
 
             randomSelectFood();
