@@ -1,7 +1,7 @@
 body {
     width: 100vw;
     height: 100vh;
-    /*padding-top: 50px;*/
+    /* padding-top: 50px;*/
 }
 
 .navbar {
@@ -31,7 +31,7 @@ body {
 }*/
 
 .container {
-    padding-top: 130px;
+    padding-top: 250px;
     height: 85%;
     /*bottom: 0;*/
     /*min-height: 92%;*/
