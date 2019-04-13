@@ -5,24 +5,29 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="skeleton.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script type="text/javascript">
-        $( function() {
-        $( "#slider-range" ).slider({
-          range: true,
-          min: 0,
-          max: 500,
-          values: [ 75, 300 ],
-          slide: function( event, ui ) {
-            $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-          }
-        });
-        $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-          " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-      } );
-    </script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/13.1.4/nouislider.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/13.1.4/nouislider.min.js"></script>
+    <style>
+        #showcase {
+            margin: 0 20px;
+            text-align: center;
+        }
+        #range {
+            height: 300px;
+            margin: 0 auto 30px;
+        }
+        #value-span,
+        #value-input {
+            width: 50%;
+            float: left;
+            display: block;
+            text-align: center;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-fixed-top">
@@ -45,6 +50,7 @@
         </div>
     </nav>
     <div class="container">
+        <h3 style="font-size: 3.5em; margin-top: 1em">My Profile</h3>
         <div class="row" style="padding: 10px; margin-top: 2em;">
             <div class="col-xs-4" style="text-align: center; display: inline-block; vertical-align: middle;">
                 <img src="no-profile.png" style="vertical-align: middle; min-width: 10em">
@@ -55,17 +61,17 @@
             </div>
         </div>
 
-        <h3 style="font-size: 3.5em; margin-top: 1em">Preference</h3>
+        <h3 style="font-size: 3.5em; margin-top: 1.5em">Preference</h3>
         <div class="row" style="padding: 10px; margin-top: 2em; padding: 2em; border-bottom: solid 0.1em black;">
             <div class="col-xs-4"><p style="font-size: 2.5em">Looking For</p></div>
             <div class="col-xs-5"></div>
             <div class="col-xs-3">
                 <div class="dropdown">
-                  <button class="btn btn-lg btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button class="btn btn-lg btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Select
                     <span class="caret"></span>
                   </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <ul id="dropdown-menu1" class="dropdown-menu" aria-labelledby="dropdownMenu">
                     <li><a href="#">Men</a></li>
                     <li><a href="#">Women</a></li>
                     <li><a href="#">No Preference</a></li>
@@ -77,19 +83,127 @@
             <div class="col-xs-4"><p style="font-size: 2.5em">Language</p></div>
             <div class="col-xs-5"></div>
             <div class="col-xs-3">
-                <p style="font-size: 2.5em">(TBD)</p>
+                <div class="dropdown">
+                  <button class="btn btn-lg btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select
+                    <span class="caret"></span>
+                  </button>
+                  <ul id="dropdown-menu2" class="dropdown-menu" aria-labelledby="dropdownMenu">
+                    <li><a href="#">English</a></li>
+                    <li><a href="#">Cantonese</a></li>
+                    <li><a href="#">Mandarin</a></li>
+                  </ul>
+                </div>
             </div>
         </div>
         <div class="row" style="padding: 10px; margin-top: 2em; padding: 2em; border-bottom: solid 0.1em black;">
             <div class="col-xs-2"><p style="font-size: 2.5em">Lunch Time</p></div>
-            <div class="col-xs-10">
-                <p>
-                    <label for="amount">Price range:</label>
-                    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                </p>
-                <div id="slider-range"></div>
+            <div class="col-xs-1"></div>
+            <div class="col-xs-9">
+                <div id="range" style="height: 20px;"></div>
+                <div id="slider-value" style="font-size: 1.5em"></div>
+            </div>
+        </div>
+        <div class="row" style="padding: 10px; margin-top: 2em; padding: 2em; border-bottom: solid 0.1em black;">
+            <div class="col-xs-2"><p style="font-size: 2.5em">Dinner Time</p></div>
+            <div class="col-xs-1"></div>
+            <div class="col-xs-9">
+                <div id="range2" style="height: 20px;"></div>
+                <div id="slider-value2" style="font-size: 1.5em"></div>
+            </div>
+        </div>
+        <div class="row" style="padding: 10px; margin-top: 2em; padding: 2em; border-bottom: solid 0.1em black;">
+            <div class="col-xs-2"><p style="font-size: 2.5em">Budget</p></div>
+            <div class="col-xs-1"></div>
+            <div class="col-xs-9">
+                <div id="range3" style="height: 20px;"></div>
+                <div id="slider-value3" style="font-size: 1.5em"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-10"></div>
+            <div class="col-xs-2">
+                <button class="btn btn-lg btn-success">
+                    Save
+                </button>
             </div>
         </div>
     </div>
+
 </body>
+<script>
+    $(function() {
+        $('#dropdown-menu1 li a').click(function () {
+            $('#dropdownMenu:first-child').html($(this).text() + "<span class='caret'></span>");
+        });
+
+        $('#dropdown-menu2 li a').click(function () {
+            $('#dropdownMenu2:first-child').html($(this).text() + "<span class='caret'></span>");
+        });
+
+        $('dropdownMenu').dropdown('toggle');
+    });
+
+    var range = document.getElementById('range');
+    var range2 = document.getElementById('range2');
+    var range3 = document.getElementById('range3');
+
+    noUiSlider.create(range, {
+        start: [2, 5],
+        step: 1,
+        connect: true,
+        range: {
+            'min': [0],
+            'max': [10]
+        }
+    });
+
+    noUiSlider.create(range2, {
+        start: [2, 5],
+        step: 1,
+        connect: true,
+        range: {
+            'min': [0],
+            'max': [9]
+        }
+    });
+
+    noUiSlider.create(range3, {
+        start: [200, 500],
+        step: 100,
+        connect: true,
+        range: {
+            'min': [0],
+            'max': [1000]
+        }
+    });
+
+    var valueElement = document.getElementById('slider-value');
+    var valueElement2 = document.getElementById('slider-value2');
+    var valueElement3 = document.getElementById('slider-value3');
+
+    range.noUiSlider.on('update', function (values) {
+        valueElement.innerHTML = "Time Range: " + values.map(function(value) {
+            var temp = 630 + parseInt(value) * 30;
+            return Math.floor(temp / 60) + ":" + (temp % 60 === 0 ? "00" : "30");
+        }).
+        join(' - ');
+    });
+
+    range2.noUiSlider.on('update', function (values) {
+        valueElement2.innerHTML = "Time Range: " + values.map(function(value) {
+            var temp = 1050 + parseInt(value) * 30;
+            return Math.floor(temp / 60) + ":" + (temp % 60 === 0 ? "00" : "30");
+        }).
+        join(' - ');
+    });
+
+    range3.noUiSlider.on('update', function (values) {
+        valueElement3.innerHTML = "Budget Range: " + values.map(function(value) {
+            var temp = Math.floor(value);
+            return "$" + (temp === 1000 ? temp + "+" : temp);
+        }).
+        join(' - ');
+    });
+</script>
 </html>
