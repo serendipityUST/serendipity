@@ -11,12 +11,12 @@
     <nav class="navbar navbar-fixed-top">
         <div class="row">
             <div class="col-xs-4 nav-icon">
-                <a href="#profile">
+                <a href="profile.html">
                     <span><i id="userIcon" class="fas fa-user" aria-hidden="true"></i></span>
                 </a>
             </div>
             <div class="col-xs-4 nav-icon">
-                <a href="#home">
+                <a href="#">
                     <i id="homeIcon" class="fas fa-utensils" aria-hidden="true"></i>
                 </a>
             </div>
@@ -29,13 +29,13 @@
     </nav>
     <div class="container_home">
         <div class="photo">
-            <img id="foodImage" src="image/Hawaiian.png">
+            <img id="foodImage" src="">
         </div>
         <div class="restaurantName">
-            <span>Pizza Hut</span>
+            <span id="restaurantName"></span>
         </div>
         <div class="foodName">
-            <span>Hawaiian Pizza</span>
+            <span id="foodName"></span>
         </div>
     </div>
     <div class="buttons">
@@ -50,6 +50,7 @@
             </a>
         </div>
     </div>
+
     <div id="match-modal" class="modal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -106,5 +107,90 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="main.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function() {
+            class Food {
+                constructor(src, producer) {
+                    this.src = src;
+                    this.name = src.split('.')[0].split('/')[1];
+                    this.producer = producer;
+                }
+            }
+
+            $('#like-button').click(function() {
+                $( "#foodName").hide();
+                $( "#restaurantName" ).hide();
+
+                $('#foodImage').toggle("slide", {direction: "down"}, 800, function() {
+                    setTimeout(function() {
+                        $( "#foodImage" ).css('visibility', 'hidden');
+                        randomSelectFood();
+                        $( "#foodName").fadeIn();
+                        $( "#restaurantName" ).fadeIn();
+                        $( "#foodImage" ).fadeIn();
+                    }, 1000 );
+                });
+            });
+
+            $('#dislike-button').click(function() {
+                $( "#foodName").hide();
+                $( "#restaurantName" ).hide();
+
+                $('#foodImage').hide("slide", {direction: "up"}, 800, function() {
+                    setTimeout(function() {
+                        $( "#foodImage" ).css('visibility', 'hidden');
+                        randomSelectFood();
+                        $( "#foodName").fadeIn();
+                        $( "#restaurantName").fadeIn();
+                        $( "#foodImage" ).fadeIn();
+                      }, 1000 );
+                });
+            });
+
+            var dummyData = [
+                new Food('image/Chocolate Lava Cake.png', 'Pizza Hut'),
+                new Food("image/Cinnamon Twist.png", "Pizza Hut"),
+                new Food("image/Cream of Mushroom Soup.png", "Pizza Hut"),
+                new Food("image/Creamy Asian Chicken Spaghetti.png", "Pizza Hut"),
+                new Food("image/Egg Tart.png", "KFC"),
+                new Food("image/English breakfast with Pancakes.jpg", "KFC"),
+                new Food("image/Flava Roast Chicken with Twisty Macaroni in Tomato Soup Combo.jpg", "KFC"),
+                new Food("image/Fried Fish Fillet with Meat Sauce (Beef) Mashed Potato Platter.jpg", "KFC"),
+                new Food("image/Hawaiian.png", "Pizza Hut"),
+                new Food("image/mushroom.jpg", "Pizza Hut"),
+                new Food("image/Pepperoni.png", "Pizza Hut"),
+                new Food("image/Seafood Quinoa Rice with Lobster Sauce.png", "Pizza Hut"),
+                new Food("image/Spaghetti Carbonara.png", "Pizza Hut"),
+                new Food("image/Tomato Twisty Macaroni.jpg", "KFC"),
+                new Food("image/Veggie Ricebox.png", "KFC"),
+                new Food("image/Veggie Supreme.png", "Pizza Hut"),
+                new Food("image/Zinger Burger.png", "KFC"),
+                new Food("image/Chocolate Lava Cake.png", "Pizza Hut")
+            ];
+
+            var dummyHistory = [];
+
+            function randomSelectFood() {
+                var selectedNumber;
+
+                do {
+                    selectedNumber = Math.floor(Math.random() * 17);
+                    console.log(selectedNumber);
+                } while(dummyHistory.includes(selectedNumber));
+
+                var selected = dummyData[selectedNumber];
+                dummyHistory.push(selectedNumber);
+
+                $('#foodImage').attr('src', selected.src);
+                $('#foodName').html(selected.name);
+                $('#restaurantName').html(selected.producer);
+                $('#foodImage').css('visibility', 'visible');
+            }
+
+            randomSelectFood();
+        });
+
+    </script>
+
 </body>
 </html>
